@@ -1,11 +1,31 @@
-// 1. Create two variables, firstCard and secondCard.
-// Set their values to a random number between 2-11
+let player = {
+  name: "Max Bet",
+  chips: 200,
+  bet: 0,
+};
 
-// 2. Create a variable, sum, and set it to the sum of the two cards
+let arrayse = [];
 
-let firstCard = 6;
-let secondCard = 9;
+let cards = [];
+let sum = 0;
+let hasBlackJack = false;
+let isAlive = false;
+let message = "";
+let messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+let playerEl = document.getElementById("player-el");
 
-let sum = firstCard + secondCard;
+playerEl.textContent = player.name + ": R" + player.chips;
 
-console.log(sum);
+// initialise cards
+function getRandomCard() {
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+  if (randomNumber > 10) {
+    return 10;
+  } else if (randomNumber === 1) {
+    return 11;
+  } else {
+    return randomNumber;
+  }
+}
